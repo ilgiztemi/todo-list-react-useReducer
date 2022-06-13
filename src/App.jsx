@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { useEffect, useReducer, useState } from "react";
+import { useReducer, useState } from "react";
 import Input from "./components/Input";
 import List from "./components/List";
 import "./styles.css";
