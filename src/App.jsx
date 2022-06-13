@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import Input from "./components/Input";
 import List from "./components/List";
 import "./styles.css";
@@ -45,6 +45,7 @@ const newTodo = (name) => {
 export default function App() {
   const [list, dispatch] = useReducer(reducer, []);
   const [name, setName] = useState("");
+
   return (
     <div className="App">
       <Input name={name} setName={setName} dispatch={dispatch} />

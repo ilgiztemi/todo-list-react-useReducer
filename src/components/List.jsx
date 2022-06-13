@@ -33,7 +33,7 @@ const List = ({ list, dispatch }) => {
             <span
               className="todo"
               style={{
-                textDecoration: todo.completed ? "none" : "line-through"
+                textDecoration: todo.completed ? "line-through" : "none"
               }}
             >
               {todo.name}
