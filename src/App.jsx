@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import Input from "./components/Input";
 import List from "./components/List";
 import "./styles.css";
@@ -41,11 +41,16 @@ const handleEdit = (list, text, id) => {
 const newTodo = (name) => {
   return { id: nanoid(), name: name, completed: false };
 };
-
+const initialValue = JSON.parse(localStorage.getItem("list"));
 export default function App() {
-  const [list, dispatch] = useReducer(reducer, []);
+  const [list, dispatch] = useReducer(
+    reducer,
+    initialValue ? initialValue : []
+  );
   const [name, setName] = useState("");
-
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(list));
+  }, [list]);
   return (
     <div className="App">
       <Input name={name} setName={setName} dispatch={dispatch} />
